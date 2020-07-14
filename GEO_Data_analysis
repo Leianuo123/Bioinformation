@@ -1,0 +1,48 @@
+##function to download GES data
+
+downGSE <- function(studyID = "GSE1009", destdir = ".") {
+  
+  library(GEOquery)
+  eSet <- getGEO(studyID, destdir = destdir, getGPL = F)
+  
+  exprSet = exprs(eSet[[1]])
+  pdata = pData(eSet[[1]])
+  
+  write.csv(exprSet, paste0(studyID, "_exprSet.csv"))
+  write.csv(pdata, paste0(studyID, "_metadata.csv"))
+  return(eSet)
+  
+}
+
+
+##Usage
+downGSE("GSE42872",destdir = "C://Users//leianuo1.LAPTOP-QE4SLSFL//Desktop//Biocinformation//Jimmy_GEO_Analysis//Training")
+##Found 1 file(s)
+##GSE42872_series_matrix.txt.gz
+##trying URL 'https://ftp.ncbi.nlm.nih.gov/geo/series/GSE42nnn/GSE42872/matrix/GSE42872_series_matrix.txt.gz'
+##Content type 'application/x-gzip' length 768865 bytes (750 KB)
+##downloaded 750 KB
+
+##Parsed with column specification:
+##cols(
+  ID_REF = col_double(),
+  GSM1052615 = col_double(),
+  GSM1052616 = col_double(),
+  GSM1052617 = col_double(),
+  GSM1052618 = col_double(),
+  GSM1052619 = col_double(),
+  GSM1052620 = col_double()
+)
+##$GSE42872_series_matrix.txt.gz
+##ExpressionSet (storageMode: lockedEnvironment)
+##assayData: 33297 features, 6 samples 
+  ##element names: exprs 
+##protocolData: none
+##phenoData
+  ##sampleNames: GSM1052615 GSM1052616 ... GSM1052620 (6 total)
+  ##varLabels: title geo_accession ... cell type:ch1 (34 total)
+  ##varMetadata: labelDescription
+##featureData: none
+##experimentData: use 'experimentData(object)'
+  ##pubMedIds: 24469106 
+##Annotation: GPL6244 
