@@ -16,6 +16,7 @@ downGSE <- function(studyID = "GSE1009", destdir = ".") {
 
 
 ##Usage
+source("downGSE.R")
 downGSE("GSE42872",destdir = "C://Users//leianuo1.LAPTOP-QE4SLSFL//Desktop//Biocinformation//Jimmy_GEO_Analysis//Training")
 ##Found 1 file(s)
 ##GSE42872_series_matrix.txt.gz
